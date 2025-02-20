@@ -2,6 +2,7 @@ import { useState } from "react";
 import Container from "./Container";
 import Hello from "./Hello";
 import { languageContext } from "./LanguageContext";
+import GithubUsers from "./GithubUsers";
 
 function App() {
   const [language, setLanguage] = useState("en");
@@ -11,21 +12,23 @@ function App() {
     //   <p className="text-blue-600">Questa è la mia applicazione</p>
     // </Container>
 
-    <languageContext.Provider value={{ language, setLanguage }}>
-      <div className="flex flex-col justify-center items-center gap-2 p-10">
-        <h1 className="font-bold text-2xl">Seleziona Lingua</h1>
-        <select
-          onChange={(e) => setLanguage(e.target.value)}
-          value={language}
-          className="border p-2 rounded-lg bg-emerald-300"
-        >
-          <option value="en">English</option>
-          <option value="it">Italiano</option>
-          <option value="es">Español</option>
-        </select>
-        <Hello />
-      </div>
-    </languageContext.Provider>
+    // <languageContext.Provider value={{ language, setLanguage }}>
+    //   <div className="flex flex-col justify-center items-center gap-2 p-10">
+    //     <h1 className="font-bold text-2xl">Seleziona Lingua</h1>
+    //     <select
+    //       onChange={(e) => setLanguage(e.target.value)}
+    //       value={language}
+    //       className="border p-2 rounded-lg bg-emerald-300"
+    //     >
+    //       <option value="en">English</option>
+    //       <option value="it">Italiano</option>
+    //       <option value="es">Español</option>
+    //     </select>
+    //     <Hello />
+    //   </div>
+    // </languageContext.Provider>
+
+    <GithubUsers />
   );
 }
 
