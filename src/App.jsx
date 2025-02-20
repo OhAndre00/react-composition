@@ -3,6 +3,7 @@ import Container from "./Container";
 import Hello from "./Hello";
 import { languageContext } from "./LanguageContext";
 import GithubUsers from "./GithubUsers";
+import MyHooks from "./myHooks";
 
 function App() {
   const [language, setLanguage] = useState("en");
@@ -28,7 +29,9 @@ function App() {
     //   </div>
     // </languageContext.Provider>
 
-    <GithubUsers />
+    // <GithubUsers />
+
+    <MyHooks />
   );
 }
 
