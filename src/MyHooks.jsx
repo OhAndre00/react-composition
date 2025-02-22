@@ -10,7 +10,7 @@ export default function MyHooks({ initalValue = 0 }) {
   const { username, password, handleUsernameChange, handlePasswordChange } =
     useControlledForm();
 
-  const user = useGithubUser("OhAndre00");
+  const user = useGithubUser("treno");
 
   const { location, error, loading, getLocation } = useCurrentLocation();
 
@@ -22,9 +22,13 @@ export default function MyHooks({ initalValue = 0 }) {
     return <p>Errore: {error}</p>;
   }
 
+  if (!location) {
+    return <p>Non è stato possibile recuperare la posizione attuale.</p>;
+  }
+
   return (
     <div>
-      <div>
+      {/* <div>
         <h2>Counter: {counter}</h2>
         <button onClick={onIncrement}>Increment</button>
         <button onClick={onDecrement}>Decrement</button>
@@ -55,14 +59,14 @@ export default function MyHooks({ initalValue = 0 }) {
       </div>
       <div>
         <h1>{user.name}</h1>
-      </div>
-      {/* <div>
+      </div> */}
+      <div>
         <h1>Posizione attuale:</h1>
         <p>Latitudine: {location.latitude}</p>
         <p>Longitudine: {location.longitude}</p>
         <p>Accuratezza: {location.accuracy} metri</p>
         <button onClick={getLocation}>Aggiorna posizione</button>
-      </div> */}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 export default function useCurrentLocation() {
   const [location, setLocation] = useState(null);
@@ -28,7 +28,11 @@ export default function useCurrentLocation() {
         setLoading(false);
       }
     );
-  }, [setLocation]);
+  }, []);
+
+  useEffect(() => {
+    getLocation();
+  }, []);
 
   return { location, error, loading, getLocation };
 }
